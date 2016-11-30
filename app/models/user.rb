@@ -1,3 +1,4 @@
 class User < ApplicationRecord
-    has_one :cart
+    belongs_to :cart
+    has_secure_password
 end
