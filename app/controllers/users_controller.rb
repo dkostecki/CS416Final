@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index,:show,:edit, :update]
+  before_action :correct_user, only: [:show,:edit, :update]
 
   
   # GET /users
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
     
   end
 
+#
   def correct_user
     @user = User.find(params[:id])
     unless @user == current_user
@@ -24,6 +26,14 @@ class UsersController < ApplicationController
       redirect_to(root_url)
     end
   end
+  
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
   
   # GET /users/new
   def new
