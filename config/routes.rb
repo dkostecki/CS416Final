@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'sessions/new'
-
+  
   resources :carts
   resources :users
   resources :products
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
+  get '/product', to: 'products#new' 
+  post '/product', to: 'products#create'
 end
