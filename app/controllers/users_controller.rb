@@ -1,18 +1,30 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
   end
 
+
+
   # GET /users/1
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    
   end
 
+  def correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      flash[:danger] = "You are not authorized to do that."
+      redirect_to(root_url)
+    end
+  end
+  
   # GET /users/new
   def new
     @user = User.new
