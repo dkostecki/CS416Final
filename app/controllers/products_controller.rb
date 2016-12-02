@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   def search
     name = params[:search] + '%'
     @products = Product.where(['name Like ?', name])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   # GET /products

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/product', to: 'products#new' 
   post '/product', to: 'products#create'
-  #post '/search', to:'products#search'
-  post '/search', to: 'users#search'
+  post '/searchproducts', to:'products#search'
+  post '/searchuser', to: 'users#search'
   
 end
