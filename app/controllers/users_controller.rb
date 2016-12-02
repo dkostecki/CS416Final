@@ -59,6 +59,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    username = params[:search] + '%'
+    @users = User.where(['username LIKE ?', username])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
