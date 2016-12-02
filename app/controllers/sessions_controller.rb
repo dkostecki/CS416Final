@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to shopping page.
       log_in user
-      redirect_to root_url
+      #redirect_to user
+      redirect_back_or user
     else
       flash.now[:danger] = 'Invalid username/password combination'
       render 'new'

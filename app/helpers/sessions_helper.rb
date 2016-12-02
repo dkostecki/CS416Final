@@ -4,6 +4,17 @@ module SessionsHelper
      session[:user_id] = user.id
   end
   
+# Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+  
+# Redirects to stored location (or to the default).
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+  
 #Returns current logged-in user  
   def current_user
      @current_user ||= User.find_by(id: session[:user_id])
