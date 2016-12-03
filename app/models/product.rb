@@ -4,4 +4,5 @@ class Product < ApplicationRecord
     belongs_to :category
     
     has_attached_file :photo
+    do_not_validate_attachment_file_type :photo
 end
