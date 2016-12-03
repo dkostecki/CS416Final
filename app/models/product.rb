@@ -3,11 +3,6 @@ class Product < ApplicationRecord
     validates:name, length:{maximum:30}
     belongs_to :category
     
-    has_attached_file :photo,
-    :styles => {
-      :thumb => "100x100#",
-      :small  => "150x150>",
-      :medium => "200x200" }
-      
+    has_attached_file :photo, :default_url => ActionController::Base.helpers.asset_path("/BM-/:style.png", :digest => false)
     do_not_validate_attachment_file_type :photo
 end
