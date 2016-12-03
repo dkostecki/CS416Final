@@ -1,8 +1,22 @@
 <%-# Shows data in table -%>
 
-<tr>
-  <td><%= product.name %></td>
-  <td><%= image_tag product.photo.url%></td>
-  <td><%= product.description%></td>
-  <td><%= link_to 'Show', product %></td>
-</tr>
+    <table style="border-bottom: 5px solid #cdd0d4;">
+      <tr> 
+        <td rowspan="4"><%= image_tag product.photo.url%></td>
+        <td><h1><%= link_to product.name, product %></h1></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right"><%= product.description%></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right">Price: $<%= product.price%>.00</td>
+      </tr>
+      <tr>
+        <td> </td>
+                <td><%= button_to 'Add to cart', 
+                              carts_path, :method => "get", 
+                              class: "btn btn-xs btn-primary" %>
+        </td>
+      </tr>
+      <tr></tr>
+    </table>
