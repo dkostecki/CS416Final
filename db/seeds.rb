@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.delete_all
+Product.create! id: 1, name: "Starfish", description: "A soft pillow, shaped as a starfish.", price: 40.00
