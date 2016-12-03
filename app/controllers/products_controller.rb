@@ -1,21 +1,12 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show]
-  before_action :correct_user, only: [:index,:show,:edit, :update, :destroy]
-
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+ 
   def search
     name = params[:search] + '%'
     @products = Product.where(['name Like ?', name])
     respond_to do |format|
       format.html
       format.js
-    end
-  end
-  
-  def correct_user
-    @product = User.find(params[:id])
-    unless @user == 'admin'
-      flash[:danger] = "You are not authorized to do that."
-      redirect_to(root_url)
     end
   end
   
