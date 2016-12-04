@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  resources :order_items, only: [:create, :update, :destroy]
+
   #root 'static_pages#home'
   root 'products#index'
   
   get 'sessions/new'
   
-  resources :carts
+  resource :cart
   resources :users
   resources :products
   resources :categories

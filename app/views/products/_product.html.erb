@@ -1,4 +1,4 @@
-<%-# Shows data in table -%>
+<%-# Shows data in table   cart_path,:method => "get", -%>
 
     <table style="border-bottom: 5px solid #cdd0d4;">
       <tr> 
@@ -13,10 +13,18 @@
       </tr>
       <tr>
         <td> </td>
-        <td><%= button_to 'Add to cart', 
-                              carts_path, :method => "get", 
-                              class: "btn btn-xs btn-primary" %>
-        </td>
+        
       </tr>
       <tr></tr>
     </table>
+
+
+<h3 class="text-center">Products for Sale</h3>
+
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3">
+    <% @products.each do |product| %>
+      <%= render "product_row", product: product, order_item: @order_item %>
+    <% end %>
+  </div>
+</div>

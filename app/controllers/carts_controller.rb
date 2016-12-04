@@ -10,6 +10,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @order_items = current_order.order_items
   end
 
   # GET /carts/new
@@ -64,7 +65,7 @@ class CartsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
-      @cart = Cart.find(params[:id])
+      #@cart = Cart.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

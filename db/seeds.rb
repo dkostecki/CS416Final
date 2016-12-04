@@ -7,4 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Product.delete_all
-Product.create! id: 1, name: "Starfish", description: "A soft pillow, shaped as a starfish.", price: 40.00
+Product.create! id: 1, name: "Starfish", description: "A soft pillow, shaped as a starfish.", price: 40.00, active:true
+
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"
