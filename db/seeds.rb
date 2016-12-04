@@ -8,6 +8,15 @@
 
 Product.delete_all
 Product.create! id: 1, name: "Starfish", description: "A soft pillow, shaped as a starfish.", price: 40.00, active:true
+Product.create! id: 2, name: "Blackmagic Micro Cinema Camera", description: 
+    "This digital film camera has a Super 16mm sensor with 13 stops of dynamic 
+    range and records in CinemaDNG RAW.", price: 995.00, active:true
+Product.create! id: 3, name: "Blackmagic Cinema Camera", description: 
+    "This digital film camera has a Super 35mm sensor with 13 stops of dynamic 
+    range and a global shutter", price: 1995.00, active:true
+Product.create! id: 4, name: "Blackmagic Ursa Mini Cinema Camera", description: 
+    "This digital film camera has a 4K Super 35mm sensor with 12 stops of dynamic 
+    range and a global shutter", price: 2995.00, active:true
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"

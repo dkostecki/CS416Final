@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
     has_many :order_items
     validates:description,length:{maximum:200}
-    validates:name, length:{maximum:30}
+    validates:name, length:{maximum:60}
     #belongs_to :category
     
     default_scope { where(active: true) }
