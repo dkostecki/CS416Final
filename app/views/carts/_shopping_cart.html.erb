@@ -1,3 +1,4 @@
+<!--A partial that displays a message if cart is empty. otherwise, show added products-->
 <% if !@order_item.nil? && @order_item.errors.any? %>
   <div class="alert alert-danger">
     <ul>
@@ -9,7 +10,7 @@
 <% end %>
 <% if @order_items.size == 0 %>
   <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
+    Your shopping cart is empty. Click home to start shopping!
   </p>
 <% else %>
   <% @order_items.each do |order_item| %>
