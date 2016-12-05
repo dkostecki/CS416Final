@@ -4,9 +4,7 @@
 
 <div class="row">
   <div >
-    <% @products.each do |product| %>
       <%= render "product_row", product: product, order_item: @order_item %>
-    <% end %>
   </div>
 </div>
 
