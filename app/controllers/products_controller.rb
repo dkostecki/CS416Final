@@ -1,13 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
  
-  def search
+  def psearch
     name = params[:search] + '%'
     @products = Product.where(['name Like ?', name])
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
   
   # GET /products
