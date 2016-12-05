@@ -4,6 +4,11 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_item_params)
     @order.save
     session[:order_id] = @order.id
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in to add to cart."
+      redirect_to login_url
+    end
   end
 
   def update
