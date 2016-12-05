@@ -17,6 +17,11 @@ Product.create! id: 3, name: "Blackmagic Cinema Camera", description:
 Product.create! id: 4, name: "Blackmagic Ursa Mini Cinema Camera", description: 
     "This digital film camera has a 4K Super 35mm sensor with 12 stops of dynamic 
     range and a global shutter", price: 2995.00, active:true
+Product.create! id: 5, name: "Tribal Dragon Wall Decal", description: 
+    "Apply this Sticker to a Car or wall Vinyl Decal Stickers to your car, truck, boat or anywhere else.", price: 7.00, active:true
+Product.create! id: 6, name: "Bioluminescent Dino Pet", description: 
+    "Your dog may be adorable. Your cat may be cute. But can they compete with a glowing dinosaur? ", price: 70.00, active:true
+
 
 OrderStatus.delete_all
 OrderStatus.create! id: 1, name: "In Progress"
